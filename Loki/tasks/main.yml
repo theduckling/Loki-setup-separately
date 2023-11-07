@@ -5,19 +5,20 @@
     mode: '0644'
   loop:
     - ~/compose
-    - ~/compose/endlessh
+    - ~/compose/loki
 
 - name: Ensure docker-compose file has been updated
   ansible.builtin.template:
     src: "{{ item }}"
-    dest: ~/compose/endlessh/
+    dest: ~/compose/loki/
     mode: '0644'
   loop:
-    - docker-compose.endlessh.yml
+    - docker-compose.yml
+    - loki-config.yml
 
-- name: Ensure endlessh compose files are up
+- name: Ensure loki compose files are up
   community.docker.docker_compose:
     state: present
-    project_src: ~/compose/endlessh/
+    project_src: ~/compose/loki/
     files:
-      - docker-compose.endlessh.yml
+      - docker-compose.yml

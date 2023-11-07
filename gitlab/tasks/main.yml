@@ -1,2 +1,0 @@
-- name: Include runner tasks
-  ansible.builtin.include_tasks: runner.yml

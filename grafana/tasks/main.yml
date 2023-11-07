@@ -1,0 +1,23 @@
+- name: Ensure directories exists
+  ansible.builtin.file:
+    dest: "{{ item }}"
+    state: directory
+    mode: '0644'
+  loop:
+    - ~/compose
+    - ~/compose/grafana
+
+- name: Ensure docker-compose file has been updated
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: ~/compose/grafana/
+    mode: '0644'
+  loop:
+    - docker-compose.yml
+
+- name: Ensure grafana compose files are up
+  community.docker.docker_compose:
+    state: present
+    project_src: ~/compose/grafana/
+    files:
+      - docker-compose.yml
