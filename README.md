@@ -6,8 +6,8 @@
 - [x] Essentials
 - [x] Docker (latest)
 - [x] Loki
-- [ ] grafana
-- [ ] promtail
+- [x] grafana
+- [X] promtail
 - [x] Reboot
 
 ## Setup
