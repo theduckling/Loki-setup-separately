@@ -20,7 +20,7 @@ services:
   #     - loki
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:10.2.0
     ports:
       - "3000:3000"
     # depends_on:
